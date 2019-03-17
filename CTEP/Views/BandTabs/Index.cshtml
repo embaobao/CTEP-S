@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CTEP.Models.UserBandis>
+﻿@model IEnumerable<CTEP.Models.BandTabs>
 
 @{
     ViewBag.Title = "Index";
@@ -12,10 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.EvalutionFormId)
+            @Html.DisplayNameFor(model => model.BandiId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
         </th>
         <th></th>
     </tr>
@@ -23,10 +26,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.EvalutionFormId)
+            @Html.DisplayFor(modelItem => item.BandiId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

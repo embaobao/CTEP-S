@@ -10,13 +10,13 @@ namespace CTEP.Controllers
 {
     public class BaseController : Controller
     {
-        public CTEPEntities db
+        public CTEBdbEntities db
         {
             get {
-                CTEPEntities db = CallContext.GetData("db") as CTEPEntities;
+                CTEBdbEntities db = CallContext.GetData("db") as CTEBdbEntities;
                 if (db == null)
                 {
-                    db = new CTEPEntities();
+                    db = new CTEBdbEntities();
                     CallContext.SetData("db", db);
 
                 }

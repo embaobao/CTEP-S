@@ -178,7 +178,9 @@
     <Compile Include="Controllers\AcademysController.cs" />
     <Compile Include="Controllers\AccountInfoesController.cs" />
     <Compile Include="Controllers\AssessmentsController.cs" />
+    <Compile Include="Controllers\BandTabsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ClassNumsController.cs" />
     <Compile Include="Controllers\CommentTemplatesController.cs" />
     <Compile Include="Controllers\CourseTemplatesController.cs" />
     <Compile Include="Controllers\CTEPSysCofigsController.cs" />
@@ -187,7 +189,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SchoolBandisTabsController.cs" />
     <Compile Include="Controllers\UniversitiesController.cs" />
-    <Compile Include="Controllers\UserBandisController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserInfoesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -203,6 +204,12 @@
       <DependentUpon>CTEPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Assessment.cs">
+      <DependentUpon>CTEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BandTabs.cs">
+      <DependentUpon>CTEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClassNum.cs">
       <DependentUpon>CTEPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CommentTemplates.cs">
@@ -235,13 +242,12 @@
     <Compile Include="Models\Grads.cs">
       <DependentUpon>CTEPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MsItem.cs" />
+    <Compile Include="Models\Mssage.cs" />
     <Compile Include="Models\SchoolBandisTabs.cs">
       <DependentUpon>CTEPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\University.cs">
-      <DependentUpon>CTEPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserBandis.cs">
       <DependentUpon>CTEPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserInfo.cs">
@@ -322,21 +328,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
-    <Content Include="Views\Users\Delete.cshtml" />
-    <Content Include="Views\Users\Details.cshtml" />
-    <Content Include="Views\Users\Edit.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\UserInfoes\Create.cshtml" />
     <Content Include="Views\UserInfoes\Delete.cshtml" />
     <Content Include="Views\UserInfoes\Details.cshtml" />
     <Content Include="Views\UserInfoes\Edit.cshtml" />
     <Content Include="Views\UserInfoes\Index.cshtml" />
-    <Content Include="Views\UserBandis\Create.cshtml" />
-    <Content Include="Views\UserBandis\Delete.cshtml" />
-    <Content Include="Views\UserBandis\Details.cshtml" />
-    <Content Include="Views\UserBandis\Edit.cshtml" />
-    <Content Include="Views\UserBandis\Index.cshtml" />
     <Content Include="Views\UserSetTabs\Create.cshtml" />
     <Content Include="Views\UserSetTabs\Delete.cshtml" />
     <Content Include="Views\UserSetTabs\Details.cshtml" />
@@ -392,6 +388,21 @@
     <Content Include="Views\CommentTemplates\Details.cshtml" />
     <Content Include="Views\CommentTemplates\Edit.cshtml" />
     <Content Include="Views\CommentTemplates\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\BandTabs\Create.cshtml" />
+    <Content Include="Views\BandTabs\Delete.cshtml" />
+    <Content Include="Views\BandTabs\Details.cshtml" />
+    <Content Include="Views\BandTabs\Edit.cshtml" />
+    <Content Include="Views\BandTabs\Index.cshtml" />
+    <Content Include="Views\ClassNums\Create.cshtml" />
+    <Content Include="Views\ClassNums\Delete.cshtml" />
+    <Content Include="Views\ClassNums\Details.cshtml" />
+    <Content Include="Views\ClassNums\Edit.cshtml" />
+    <Content Include="Views\ClassNums\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -10,107 +10,107 @@ using CTEP.Models;
 
 namespace CTEP.Controllers
 {
-    public class UsersController : BaseController
+    public class ClassNumsController : Controller
     {
-       
+        private CTEBdbEntities db = new CTEBdbEntities();
 
-        // GET: Users
+        // GET: ClassNums
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            return View(db.ClassNum.ToList());
         }
 
-        // GET: Users/Details/5
+        // GET: ClassNums/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users users = db.Users.Find(id);
-            if (users == null)
+            ClassNum classNum = db.ClassNum.Find(id);
+            if (classNum == null)
             {
                 return HttpNotFound();
             }
-            return View(users);
+            return View(classNum);
         }
 
-        // GET: Users/Create
+        // GET: ClassNums/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: ClassNums/Create
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,email,pw,role,status")] Users users)
+        public ActionResult Create([Bind(Include = "Id,name,upid")] ClassNum classNum)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(users);
+                db.ClassNum.Add(classNum);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(users);
+            return View(classNum);
         }
 
-        // GET: Users/Edit/5
+        // GET: ClassNums/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users users = db.Users.Find(id);
-            if (users == null)
+            ClassNum classNum = db.ClassNum.Find(id);
+            if (classNum == null)
             {
                 return HttpNotFound();
             }
-            return View(users);
+            return View(classNum);
         }
 
-        // POST: Users/Edit/5
+        // POST: ClassNums/Edit/5
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,email,pw,role,status")] Users users)
+        public ActionResult Edit([Bind(Include = "Id,name,upid")] ClassNum classNum)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(users).State = EntityState.Modified;
+                db.Entry(classNum).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(users);
+            return View(classNum);
         }
 
-        // GET: Users/Delete/5
+        // GET: ClassNums/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users users = db.Users.Find(id);
-            if (users == null)
+            ClassNum classNum = db.ClassNum.Find(id);
+            if (classNum == null)
             {
                 return HttpNotFound();
             }
-            return View(users);
+            return View(classNum);
         }
 
-        // POST: Users/Delete/5
+        // POST: ClassNums/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Users users = db.Users.Find(id);
-            db.Users.Remove(users);
+            ClassNum classNum = db.ClassNum.Find(id);
+            db.ClassNum.Remove(classNum);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

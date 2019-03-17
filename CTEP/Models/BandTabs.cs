@@ -12,10 +12,11 @@ namespace CTEP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class UserBandis
+    public partial class BandTabs
     {
         public int id { get; set; }
-        public Nullable<int> EvalutionFormId { get; set; }
+        public Nullable<int> BandiId { get; set; }
         public Nullable<int> type { get; set; }
+        public Nullable<int> UserId { get; set; }
     }
 }

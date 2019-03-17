@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CTEPdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="CTEPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Academys">
           <Key>
             <PropertyRef Name="id" />
@@ -38,6 +38,23 @@
           <Property Name="TeachAttitude" Type="float" />
           <Property Name="StudentRelation" Type="float" />
           <Property Name="BandiId" Type="int" />
+        </EntityType>
+        <EntityType Name="BandTabs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BandiId" Type="int" />
+          <Property Name="type" Type="int" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="ClassNum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="upid" Type="int" />
         </EntityType>
         <EntityType Name="CommentTemplates">
           <Key>
@@ -118,14 +135,6 @@
           <Property Name="name" Type="varchar(max)" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
-        <EntityType Name="UserBandis">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="EvalutionFormId" Type="int" />
-          <Property Name="type" Type="int" />
-        </EntityType>
         <EntityType Name="UserInfo">
           <Key>
             <PropertyRef Name="id" />
@@ -155,10 +164,12 @@
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="userSet" Type="xml" />
         </EntityType>
-        <EntityContainer Name="CTEPdbModelStoreContainer">
+        <EntityContainer Name="CTEPModelStoreContainer">
           <EntitySet Name="Academys" EntityType="Self.Academys" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AccountInfo" EntityType="Self.AccountInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Assessment" EntityType="Self.Assessment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BandTabs" EntityType="Self.BandTabs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassNum" EntityType="Self.ClassNum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CommentTemplates" EntityType="Self.CommentTemplates" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CourseTemplates" EntityType="Self.CourseTemplates" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTEPSysCofig" EntityType="Self.CTEPSysCofig" Schema="dbo" store:Type="Tables" />
@@ -166,7 +177,6 @@
           <EntitySet Name="Grads" EntityType="Self.Grads" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SchoolBandisTabs" EntityType="Self.SchoolBandisTabs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="University" EntityType="Self.University" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserBandis" EntityType="Self.UserBandis" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserSetTabs" EntityType="Self.UserSetTabs" Schema="dbo" store:Type="Tables" />
@@ -175,7 +185,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="CTEPdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="CTEPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Academys">
           <Key>
             <PropertyRef Name="id" />
@@ -209,6 +219,23 @@
           <Property Name="TeachAttitude" Type="Double" />
           <Property Name="StudentRelation" Type="Double" />
           <Property Name="BandiId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BandTabs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BandiId" Type="Int32" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ClassNum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="upid" Type="Int32" />
         </EntityType>
         <EntityType Name="CommentTemplates">
           <Key>
@@ -289,14 +316,6 @@
           <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
-        <EntityType Name="UserBandis">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="EvalutionFormId" Type="Int32" />
-          <Property Name="type" Type="Int32" />
-        </EntityType>
         <EntityType Name="UserInfo">
           <Key>
             <PropertyRef Name="id" />
@@ -326,10 +345,12 @@
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="userSet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="CTEPEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CTEBdbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Academys" EntityType="Self.Academys" />
           <EntitySet Name="AccountInfo" EntityType="Self.AccountInfo" />
           <EntitySet Name="Assessment" EntityType="Self.Assessment" />
+          <EntitySet Name="BandTabs" EntityType="Self.BandTabs" />
+          <EntitySet Name="ClassNum" EntityType="Self.ClassNum" />
           <EntitySet Name="CommentTemplates" EntityType="Self.CommentTemplates" />
           <EntitySet Name="CourseTemplates" EntityType="Self.CourseTemplates" />
           <EntitySet Name="CTEPSysCofig" EntityType="Self.CTEPSysCofig" />
@@ -337,7 +358,6 @@
           <EntitySet Name="Grads" EntityType="Self.Grads" />
           <EntitySet Name="SchoolBandisTabs" EntityType="Self.SchoolBandisTabs" />
           <EntitySet Name="University" EntityType="Self.University" />
-          <EntitySet Name="UserBandis" EntityType="Self.UserBandis" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <EntitySet Name="UserSetTabs" EntityType="Self.UserSetTabs" />
@@ -347,9 +367,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CTEPdbModelStoreContainer" CdmEntityContainer="CTEPEntities">
+        <EntityContainerMapping StorageEntityContainer="CTEPModelStoreContainer" CdmEntityContainer="CTEBdbEntities">
           <EntitySetMapping Name="Academys">
-            <EntityTypeMapping TypeName="CTEPdbModel.Academys">
+            <EntityTypeMapping TypeName="CTEPModel.Academys">
               <MappingFragment StoreEntitySet="Academys">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -358,7 +378,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AccountInfo">
-            <EntityTypeMapping TypeName="CTEPdbModel.AccountInfo">
+            <EntityTypeMapping TypeName="CTEPModel.AccountInfo">
               <MappingFragment StoreEntitySet="AccountInfo">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
@@ -369,7 +389,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Assessment">
-            <EntityTypeMapping TypeName="CTEPdbModel.Assessment">
+            <EntityTypeMapping TypeName="CTEPModel.Assessment">
               <MappingFragment StoreEntitySet="Assessment">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="EvaTabId" ColumnName="EvaTabId" />
@@ -385,8 +405,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="BandTabs">
+            <EntityTypeMapping TypeName="CTEPModel.BandTabs">
+              <MappingFragment StoreEntitySet="BandTabs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="BandiId" ColumnName="BandiId" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClassNum">
+            <EntityTypeMapping TypeName="CTEPModel.ClassNum">
+              <MappingFragment StoreEntitySet="ClassNum">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="upid" ColumnName="upid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="CommentTemplates">
-            <EntityTypeMapping TypeName="CTEPdbModel.CommentTemplates">
+            <EntityTypeMapping TypeName="CTEPModel.CommentTemplates">
               <MappingFragment StoreEntitySet="CommentTemplates">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="CreateId" ColumnName="CreateId" />
@@ -396,7 +435,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CourseTemplates">
-            <EntityTypeMapping TypeName="CTEPdbModel.CourseTemplates">
+            <EntityTypeMapping TypeName="CTEPModel.CourseTemplates">
               <MappingFragment StoreEntitySet="CourseTemplates">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="CreaterId" ColumnName="CreaterId" />
@@ -410,7 +449,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CTEPSysCofig">
-            <EntityTypeMapping TypeName="CTEPdbModel.CTEPSysCofig">
+            <EntityTypeMapping TypeName="CTEPModel.CTEPSysCofig">
               <MappingFragment StoreEntitySet="CTEPSysCofig">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="AdminId" ColumnName="AdminId" />
@@ -424,7 +463,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalutionForms">
-            <EntityTypeMapping TypeName="CTEPdbModel.EvalutionForms">
+            <EntityTypeMapping TypeName="CTEPModel.EvalutionForms">
               <MappingFragment StoreEntitySet="EvalutionForms">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="CreateId" ColumnName="CreateId" />
@@ -444,7 +483,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Grads">
-            <EntityTypeMapping TypeName="CTEPdbModel.Grads">
+            <EntityTypeMapping TypeName="CTEPModel.Grads">
               <MappingFragment StoreEntitySet="Grads">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -453,7 +492,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SchoolBandisTabs">
-            <EntityTypeMapping TypeName="CTEPdbModel.SchoolBandisTabs">
+            <EntityTypeMapping TypeName="CTEPModel.SchoolBandisTabs">
               <MappingFragment StoreEntitySet="SchoolBandisTabs">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="UniversityName" ColumnName="UniversityName" />
@@ -464,24 +503,15 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="University">
-            <EntityTypeMapping TypeName="CTEPdbModel.University">
+            <EntityTypeMapping TypeName="CTEPModel.University">
               <MappingFragment StoreEntitySet="University">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserBandis">
-            <EntityTypeMapping TypeName="CTEPdbModel.UserBandis">
-              <MappingFragment StoreEntitySet="UserBandis">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="EvalutionFormId" ColumnName="EvalutionFormId" />
-                <ScalarProperty Name="type" ColumnName="type" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="UserInfo">
-            <EntityTypeMapping TypeName="CTEPdbModel.UserInfo">
+            <EntityTypeMapping TypeName="CTEPModel.UserInfo">
               <MappingFragment StoreEntitySet="UserInfo">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="img" ColumnName="img" />
@@ -494,7 +524,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="CTEPdbModel.Users">
+            <EntityTypeMapping TypeName="CTEPModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="email" ColumnName="email" />
@@ -505,7 +535,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserSetTabs">
-            <EntityTypeMapping TypeName="CTEPdbModel.UserSetTabs">
+            <EntityTypeMapping TypeName="CTEPModel.UserSetTabs">
               <MappingFragment StoreEntitySet="UserSetTabs">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="userSet" ColumnName="userSet" />

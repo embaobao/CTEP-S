@@ -1,4 +1,4 @@
-﻿@model CTEP.Models.UserBandis
+﻿@model CTEP.Models.BandTabs
 
 @{
     ViewBag.Title = "Details";
@@ -7,15 +7,15 @@
 <h2>Details</h2>
 
 <div>
-    <h4>UserBandis</h4>
+    <h4>BandTabs</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.EvalutionFormId)
+            @Html.DisplayNameFor(model => model.BandiId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EvalutionFormId)
+            @Html.DisplayFor(model => model.BandiId)
         </dd>
 
         <dt>
@@ -24,6 +24,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
         </dd>
 
     </dl>

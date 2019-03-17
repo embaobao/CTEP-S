@@ -13,10 +13,10 @@ namespace CTEP.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CTEPEntities : DbContext
+    public partial class CTEBdbEntities : DbContext
     {
-        public CTEPEntities()
-            : base("name=CTEPEntities")
+        public CTEBdbEntities()
+            : base("name=CTEBdbEntities")
         {
         }
     
@@ -28,6 +28,8 @@ namespace CTEP.Models
         public virtual DbSet<Academys> Academys { get; set; }
         public virtual DbSet<AccountInfo> AccountInfo { get; set; }
         public virtual DbSet<Assessment> Assessment { get; set; }
+        public virtual DbSet<BandTabs> BandTabs { get; set; }
+        public virtual DbSet<ClassNum> ClassNum { get; set; }
         public virtual DbSet<CommentTemplates> CommentTemplates { get; set; }
         public virtual DbSet<CourseTemplates> CourseTemplates { get; set; }
         public virtual DbSet<CTEPSysCofig> CTEPSysCofig { get; set; }
@@ -35,7 +37,6 @@ namespace CTEP.Models
         public virtual DbSet<Grads> Grads { get; set; }
         public virtual DbSet<SchoolBandisTabs> SchoolBandisTabs { get; set; }
         public virtual DbSet<University> University { get; set; }
-        public virtual DbSet<UserBandis> UserBandis { get; set; }
         public virtual DbSet<UserInfo> UserInfo { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<UserSetTabs> UserSetTabs { get; set; }

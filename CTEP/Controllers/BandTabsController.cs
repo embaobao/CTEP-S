@@ -10,107 +10,105 @@ using CTEP.Models;
 
 namespace CTEP.Controllers
 {
-    public class UserBandisController : BaseController
+    public class BandTabsController : BaseController
     {
-        //private CTEPdbEntities db = new CTEPdbEntities();
-
-        // GET: UserBandis
+        // GET: BandTabs
         public ActionResult Index()
         {
-            return View(db.UserBandis.ToList());
+            return View(db.BandTabs.ToList());
         }
 
-        // GET: UserBandis/Details/5
+        // GET: BandTabs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserBandis userBandis = db.UserBandis.Find(id);
-            if (userBandis == null)
+            BandTabs bandTabs = db.BandTabs.Find(id);
+            if (bandTabs == null)
             {
                 return HttpNotFound();
             }
-            return View(userBandis);
+            return View(bandTabs);
         }
 
-        // GET: UserBandis/Create
+        // GET: BandTabs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: UserBandis/Create
+        // POST: BandTabs/Create
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,EvalutionFormId,type")] UserBandis userBandis)
+        public ActionResult Create([Bind(Include = "id,BandiId,type,UserId")] BandTabs bandTabs)
         {
             if (ModelState.IsValid)
             {
-                db.UserBandis.Add(userBandis);
+                db.BandTabs.Add(bandTabs);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(userBandis);
+            return View(bandTabs);
         }
 
-        // GET: UserBandis/Edit/5
+        // GET: BandTabs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserBandis userBandis = db.UserBandis.Find(id);
-            if (userBandis == null)
+            BandTabs bandTabs = db.BandTabs.Find(id);
+            if (bandTabs == null)
             {
                 return HttpNotFound();
             }
-            return View(userBandis);
+            return View(bandTabs);
         }
 
-        // POST: UserBandis/Edit/5
+        // POST: BandTabs/Edit/5
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,EvalutionFormId,type")] UserBandis userBandis)
+        public ActionResult Edit([Bind(Include = "id,BandiId,type,UserId")] BandTabs bandTabs)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(userBandis).State = EntityState.Modified;
+                db.Entry(bandTabs).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(userBandis);
+            return View(bandTabs);
         }
 
-        // GET: UserBandis/Delete/5
+        // GET: BandTabs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserBandis userBandis = db.UserBandis.Find(id);
-            if (userBandis == null)
+            BandTabs bandTabs = db.BandTabs.Find(id);
+            if (bandTabs == null)
             {
                 return HttpNotFound();
             }
-            return View(userBandis);
+            return View(bandTabs);
         }
 
-        // POST: UserBandis/Delete/5
+        // POST: BandTabs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            UserBandis userBandis = db.UserBandis.Find(id);
-            db.UserBandis.Remove(userBandis);
+            BandTabs bandTabs = db.BandTabs.Find(id);
+            db.BandTabs.Remove(bandTabs);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
