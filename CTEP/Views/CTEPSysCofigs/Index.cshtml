@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CTEP.Models.CTEPSysCofig>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminPw)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SysDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmaiTemplate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SysAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.img)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminPw)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SysDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmaiTemplate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WebAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SysAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.img)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

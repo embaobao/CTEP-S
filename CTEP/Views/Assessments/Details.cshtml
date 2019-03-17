@@ -1,0 +1,98 @@
+﻿@model CTEP.Models.Assessment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Assessment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EvaTabId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EvaTabId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AllScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AllScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.suggest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.suggest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeachObj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeachObj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeachMethod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeachMethod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeachAbility)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeachAbility)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeachAttitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeachAttitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentRelation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentRelation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BandiId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BandiId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

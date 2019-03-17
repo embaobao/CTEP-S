@@ -1,0 +1,122 @@
+﻿@model CTEP.Models.EvalutionForms
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EvalutionForms</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.body)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.body)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.img)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.img)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EStartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EStartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EEndTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EEndTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eweek)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eweek)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BandiId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BandiId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

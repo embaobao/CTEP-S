@@ -1,0 +1,87 @@
+﻿@model IEnumerable<CTEP.Models.Assessment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EvaTabId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AllScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.suggest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeachObj)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeachMethod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeachAbility)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeachAttitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentRelation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BandiId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EvaTabId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AllScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.suggest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeachObj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeachMethod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeachAbility)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeachAttitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentRelation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BandiId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

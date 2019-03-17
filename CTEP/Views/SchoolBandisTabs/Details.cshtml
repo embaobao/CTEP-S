@@ -1,0 +1,50 @@
+﻿@model CTEP.Models.SchoolBandisTabs
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SchoolBandisTabs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UniversityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UniversityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcademyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcademyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradeNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradeNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassNum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

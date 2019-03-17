@@ -1,0 +1,42 @@
+﻿@model CTEP.Models.CommentTemplates
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CommentTemplates</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreteTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreteTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EContent)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

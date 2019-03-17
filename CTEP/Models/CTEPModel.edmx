@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CTEPdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Academys">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="upid" Type="int" />
+        </EntityType>
+        <EntityType Name="AccountInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="address" Type="nvarchar(max)" />
+          <Property Name="UsedTime" Type="datetime" />
+          <Property Name="LastTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Assessment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="EvaTabId" Type="int" />
+          <Property Name="CourseId" Type="int" />
+          <Property Name="AllScore" Type="float" />
+          <Property Name="suggest" Type="nvarchar(max)" />
+          <Property Name="TeachObj" Type="float" />
+          <Property Name="TeachMethod" Type="float" />
+          <Property Name="TeachAbility" Type="float" />
+          <Property Name="TeachAttitude" Type="float" />
+          <Property Name="StudentRelation" Type="float" />
+          <Property Name="BandiId" Type="int" />
+        </EntityType>
+        <EntityType Name="CommentTemplates">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateId" Type="int" />
+          <Property Name="CreteTime" Type="int" />
+          <Property Name="EContent" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CourseTemplates">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreaterId" Type="int" />
+          <Property Name="CourseStatus" Type="int" />
+          <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="body" Type="nvarchar(max)" />
+          <Property Name="img" Type="image" />
+          <Property Name="CourseScore" Type="float" />
+          <Property Name="bandinID" Type="int" />
+        </EntityType>
+        <EntityType Name="CTEPSysCofig">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="AdminId" Type="nvarchar(max)" />
+          <Property Name="AdminPw" Type="nvarchar(max)" />
+          <Property Name="SysDescription" Type="xml" />
+          <Property Name="EmaiTemplate" Type="xml" />
+          <Property Name="WebAddress" Type="nvarchar(max)" />
+          <Property Name="SysAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="img" Type="image" />
+        </EntityType>
+        <EntityType Name="EvalutionForms">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateId" Type="int" />
+          <Property Name="CourseId" Type="int" />
+          <Property Name="author" Type="nvarchar(max)" />
+          <Property Name="score" Type="float" />
+          <Property Name="FormStatus" Type="int" />
+          <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="body" Type="nvarchar(max)" />
+          <Property Name="img" Type="image" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="EStartTime" Type="datetime" />
+          <Property Name="EEndTime" Type="datetime" />
+          <Property Name="Eweek" Type="int" />
+          <Property Name="BandiId" Type="int" />
+        </EntityType>
+        <EntityType Name="Grads">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="upid" Type="int" />
+        </EntityType>
+        <EntityType Name="SchoolBandisTabs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UniversityName" Type="int" />
+          <Property Name="AcademyName" Type="int" />
+          <Property Name="GradeNum" Type="int" />
+          <Property Name="ClassNum" Type="int" />
+        </EntityType>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="name" Type="varchar(max)" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserBandis">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="EvalutionFormId" Type="int" />
+          <Property Name="type" Type="int" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="img" Type="image" />
+          <Property Name="gender" Type="nchar" MaxLength="10" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="descrition" Type="nvarchar(max)" />
+          <Property Name="address" Type="nvarchar(max)" />
+          <Property Name="BandiID" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="pw" Type="nvarchar(max)" />
+          <Property Name="role" Type="int" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="UserSetTabs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="userSet" Type="xml" />
+        </EntityType>
+        <EntityContainer Name="CTEPdbModelStoreContainer">
+          <EntitySet Name="Academys" EntityType="Self.Academys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountInfo" EntityType="Self.AccountInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Assessment" EntityType="Self.Assessment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommentTemplates" EntityType="Self.CommentTemplates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseTemplates" EntityType="Self.CourseTemplates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CTEPSysCofig" EntityType="Self.CTEPSysCofig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EvalutionForms" EntityType="Self.EvalutionForms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grads" EntityType="Self.Grads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchoolBandisTabs" EntityType="Self.SchoolBandisTabs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="University" EntityType="Self.University" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserBandis" EntityType="Self.UserBandis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserSetTabs" EntityType="Self.UserSetTabs" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CTEPdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Academys">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="upid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AccountInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UsedTime" Type="DateTime" Precision="3" />
+          <Property Name="LastTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Assessment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="EvaTabId" Type="Int32" />
+          <Property Name="CourseId" Type="Int32" />
+          <Property Name="AllScore" Type="Double" />
+          <Property Name="suggest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TeachObj" Type="Double" />
+          <Property Name="TeachMethod" Type="Double" />
+          <Property Name="TeachAbility" Type="Double" />
+          <Property Name="TeachAttitude" Type="Double" />
+          <Property Name="StudentRelation" Type="Double" />
+          <Property Name="BandiId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CommentTemplates">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateId" Type="Int32" />
+          <Property Name="CreteTime" Type="Int32" />
+          <Property Name="EContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CourseTemplates">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreaterId" Type="Int32" />
+          <Property Name="CourseStatus" Type="Int32" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CourseScore" Type="Double" />
+          <Property Name="bandinID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CTEPSysCofig">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="AdminId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AdminPw" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SysDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmaiTemplate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WebAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SysAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="EvalutionForms">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateId" Type="Int32" />
+          <Property Name="CourseId" Type="Int32" />
+          <Property Name="author" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="score" Type="Double" />
+          <Property Name="FormStatus" Type="Int32" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="EStartTime" Type="DateTime" Precision="3" />
+          <Property Name="EEndTime" Type="DateTime" Precision="3" />
+          <Property Name="Eweek" Type="Int32" />
+          <Property Name="BandiId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Grads">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="upid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SchoolBandisTabs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UniversityName" Type="Int32" />
+          <Property Name="AcademyName" Type="Int32" />
+          <Property Name="GradeNum" Type="Int32" />
+          <Property Name="ClassNum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="UserBandis">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="EvalutionFormId" Type="Int32" />
+          <Property Name="type" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="descrition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BandiID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="pw" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UserSetTabs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="userSet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="CTEPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Academys" EntityType="Self.Academys" />
+          <EntitySet Name="AccountInfo" EntityType="Self.AccountInfo" />
+          <EntitySet Name="Assessment" EntityType="Self.Assessment" />
+          <EntitySet Name="CommentTemplates" EntityType="Self.CommentTemplates" />
+          <EntitySet Name="CourseTemplates" EntityType="Self.CourseTemplates" />
+          <EntitySet Name="CTEPSysCofig" EntityType="Self.CTEPSysCofig" />
+          <EntitySet Name="EvalutionForms" EntityType="Self.EvalutionForms" />
+          <EntitySet Name="Grads" EntityType="Self.Grads" />
+          <EntitySet Name="SchoolBandisTabs" EntityType="Self.SchoolBandisTabs" />
+          <EntitySet Name="University" EntityType="Self.University" />
+          <EntitySet Name="UserBandis" EntityType="Self.UserBandis" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="UserSetTabs" EntityType="Self.UserSetTabs" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CTEPdbModelStoreContainer" CdmEntityContainer="CTEPEntities">
+          <EntitySetMapping Name="Academys">
+            <EntityTypeMapping TypeName="CTEPdbModel.Academys">
+              <MappingFragment StoreEntitySet="Academys">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="upid" ColumnName="upid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountInfo">
+            <EntityTypeMapping TypeName="CTEPdbModel.AccountInfo">
+              <MappingFragment StoreEntitySet="AccountInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="UsedTime" ColumnName="UsedTime" />
+                <ScalarProperty Name="LastTime" ColumnName="LastTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Assessment">
+            <EntityTypeMapping TypeName="CTEPdbModel.Assessment">
+              <MappingFragment StoreEntitySet="Assessment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="EvaTabId" ColumnName="EvaTabId" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="AllScore" ColumnName="AllScore" />
+                <ScalarProperty Name="suggest" ColumnName="suggest" />
+                <ScalarProperty Name="TeachObj" ColumnName="TeachObj" />
+                <ScalarProperty Name="TeachMethod" ColumnName="TeachMethod" />
+                <ScalarProperty Name="TeachAbility" ColumnName="TeachAbility" />
+                <ScalarProperty Name="TeachAttitude" ColumnName="TeachAttitude" />
+                <ScalarProperty Name="StudentRelation" ColumnName="StudentRelation" />
+                <ScalarProperty Name="BandiId" ColumnName="BandiId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommentTemplates">
+            <EntityTypeMapping TypeName="CTEPdbModel.CommentTemplates">
+              <MappingFragment StoreEntitySet="CommentTemplates">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="CreteTime" ColumnName="CreteTime" />
+                <ScalarProperty Name="EContent" ColumnName="EContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseTemplates">
+            <EntityTypeMapping TypeName="CTEPdbModel.CourseTemplates">
+              <MappingFragment StoreEntitySet="CourseTemplates">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CreaterId" ColumnName="CreaterId" />
+                <ScalarProperty Name="CourseStatus" ColumnName="CourseStatus" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="CourseScore" ColumnName="CourseScore" />
+                <ScalarProperty Name="bandinID" ColumnName="bandinID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTEPSysCofig">
+            <EntityTypeMapping TypeName="CTEPdbModel.CTEPSysCofig">
+              <MappingFragment StoreEntitySet="CTEPSysCofig">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="AdminPw" ColumnName="AdminPw" />
+                <ScalarProperty Name="SysDescription" ColumnName="SysDescription" />
+                <ScalarProperty Name="EmaiTemplate" ColumnName="EmaiTemplate" />
+                <ScalarProperty Name="WebAddress" ColumnName="WebAddress" />
+                <ScalarProperty Name="SysAddress" ColumnName="SysAddress" />
+                <ScalarProperty Name="img" ColumnName="img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EvalutionForms">
+            <EntityTypeMapping TypeName="CTEPdbModel.EvalutionForms">
+              <MappingFragment StoreEntitySet="EvalutionForms">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="FormStatus" ColumnName="FormStatus" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="EStartTime" ColumnName="EStartTime" />
+                <ScalarProperty Name="EEndTime" ColumnName="EEndTime" />
+                <ScalarProperty Name="Eweek" ColumnName="Eweek" />
+                <ScalarProperty Name="BandiId" ColumnName="BandiId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grads">
+            <EntityTypeMapping TypeName="CTEPdbModel.Grads">
+              <MappingFragment StoreEntitySet="Grads">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="upid" ColumnName="upid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SchoolBandisTabs">
+            <EntityTypeMapping TypeName="CTEPdbModel.SchoolBandisTabs">
+              <MappingFragment StoreEntitySet="SchoolBandisTabs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="UniversityName" ColumnName="UniversityName" />
+                <ScalarProperty Name="AcademyName" ColumnName="AcademyName" />
+                <ScalarProperty Name="GradeNum" ColumnName="GradeNum" />
+                <ScalarProperty Name="ClassNum" ColumnName="ClassNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="University">
+            <EntityTypeMapping TypeName="CTEPdbModel.University">
+              <MappingFragment StoreEntitySet="University">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserBandis">
+            <EntityTypeMapping TypeName="CTEPdbModel.UserBandis">
+              <MappingFragment StoreEntitySet="UserBandis">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="EvalutionFormId" ColumnName="EvalutionFormId" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="CTEPdbModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="descrition" ColumnName="descrition" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="BandiID" ColumnName="BandiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CTEPdbModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="pw" ColumnName="pw" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSetTabs">
+            <EntityTypeMapping TypeName="CTEPdbModel.UserSetTabs">
+              <MappingFragment StoreEntitySet="UserSetTabs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userSet" ColumnName="userSet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
