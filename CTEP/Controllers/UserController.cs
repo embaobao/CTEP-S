@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -31,7 +32,7 @@ namespace CTEP.Controllers
             return Json(u);
         }
         [HttpPost]
-        public ActionResult LoadInfo([Bind(Include = "id,email,pw,role,status")] Users user)
+        public ActionResult Info([Bind(Include = "id,email,pw,role,status")] Users user)
         {
 
             IQueryable<Users> _users = db.Users.Where(x => x.email == user.email && x.pw == user.pw && x.role == user.role && x.status == 1).Take(1) as IQueryable<Users>;
@@ -151,15 +152,37 @@ namespace CTEP.Controllers
             return Json(ef);
         }
 
-        //[HttpPost]
-        //public ActionResult EvalutonForms(int? id)
-        //{
-        //    List<EvalutionForms> result = null;
-        //    IQueryable<EvalutionForms> _ui = db.EvalutionForms.Where(x => x.id == id) as IQueryable<EvalutionForms>;
-        //    return Json(result);
-        //}
+       
 
+        // POST: UserInfoes/Create
+        // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
+        // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
+        [HttpPost]
+        public ActionResult PutInfo([Bind(Include = "id,img,gender,name,descrition,address,BandiID")] UserInfo userInfo)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    if (db.UserInfo.Where(x => x.id == userInfo.id).Take(1).Count() > 0)
+                    {
+                        db.Entry(userInfo).State = EntityState.Modified;
+                    }
+                    else {
+                        db.UserInfo.Add(userInfo);
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
 
+                return Json(false);
+            }
+            
+            
+            return Json(true);
+        }
 
 
 

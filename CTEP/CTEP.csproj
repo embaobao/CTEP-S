@@ -178,12 +178,14 @@
     <Compile Include="Controllers\AcademysController.cs" />
     <Compile Include="Controllers\AccountInfoesController.cs" />
     <Compile Include="Controllers\AssessmentsController.cs" />
+    <Compile Include="Controllers\BandisSchoolController.cs" />
     <Compile Include="Controllers\BandTabsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ClassNumsController.cs" />
     <Compile Include="Controllers\CommentTemplatesController.cs" />
     <Compile Include="Controllers\CourseTemplatesController.cs" />
     <Compile Include="Controllers\CTEPSysCofigsController.cs" />
+    <Compile Include="Controllers\EvaluController.cs" />
     <Compile Include="Controllers\EvalutionFormsController.cs" />
     <Compile Include="Controllers\GradsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -438,7 +440,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\BandisSchool\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Evalu\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <PropertyGroup>
