@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CreateId)
         </th>
         <th>
@@ -54,52 +57,55 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreateId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.author)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.score)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FormStatus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.img)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EStartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EEndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Eweek)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BandiId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreateId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CourseId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.author)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.score)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FormStatus)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.body)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.img)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreateTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EStartTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EEndTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Eweek)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BandiId)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+    </td>
+</tr>
 }
 
 </table>

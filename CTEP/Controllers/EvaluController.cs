@@ -4,7 +4,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CMsListEP.Models;
 using CTEP.Models;
+using Newtonsoft.Json;
 
 namespace CTEP.Controllers
 {
@@ -74,58 +76,117 @@ namespace CTEP.Controllers
         [HttpPost]
         public ActionResult PutAssessment([Bind(Include = "id,EvaTabId,CourseId,AllScore,suggest,TeachObj,TeachMethod,TeachAbility,TeachAttitude,StudentRelation,BandiId")] Assessment assessment)
         {
+            
+            MsList ms = new MsList();
+            ms.Add(new MsItem("Post过来的数据", assessment)); // 测试完成，数据到达！
             try
             {
 
                 if (ModelState.IsValid)
                 {
                     //准备查找评价表 为修改评价表中分值做准备
-                    //准备查找课程模板表 为修课程模板表中分值做准备
+                    
                     IQueryable<EvalutionForms> _ef = null;
+                    //准备查找课程模板表 为修课程模板表中分值做准备
                     IQueryable<CourseTemplates> _ct = null;
-                    //查看是否有记录 用户是都已经评价过此评价表
+
+                    //1）查看是否有记录 用户是都已经评价过此评价表
                     IQueryable<Assessment> _al = db.Assessment.Where(x => x.EvaTabId == assessment.EvaTabId && x.id == assessment.id) as IQueryable<Assessment>;
+
                     if (_al.Count() > 0)
                     {//如果记录中有匹配的记录 1>0的  那就修改
                         db.Entry(assessment).State = EntityState.Modified;
+
+                        //测试数据 有匹配的记录 评价表
+                        ms.Add(new MsItem("有匹配的记录评价表", assessment));
                     }
                     else
                     {//如果记录中没有匹配的记录 0!>0的 
                         db.Assessment.Add(assessment);
+                        //测试数据 没有匹配的记录 评价表
+                        ms.Add(new MsItem("没有匹配的记录的记录评价表", assessment));
                     }
+
+                    
 
                     //修改评价表中的分值
                     //查找评价表
                     _ef = db.EvalutionForms.Where(x => x.id == assessment.EvaTabId).Take(1) as IQueryable<EvalutionForms>;
-                    //取出用户评价的 评价表对象
-                    EvalutionForms ef = _ef.FirstOrDefault();
-                    //修改分数
-                    //查找出多少人提交了对ed 此对象 评价表的 评价
-                    IQueryable<Assessment> _ae = db.Assessment.Where(x => x.EvaTabId == ef.id) as IQueryable<Assessment>;
-                    //记录人数
-                    int eNum = _ae.Count();
-                    //遍历所有评价分数给评价表
-                    foreach (Assessment a in _ae.ToList())
-                    {
-                        ef.score += a.AllScore;
-                    }
-                    //取平均
-                    ef.score = ef.score / eNum;
 
-                    _ct = db.CommentTemplates.Where(x => x.id == assessment.CourseId).Take(1) as IQueryable<CourseTemplates>;
+                   
+                    //取出用户评价的评价表对象
+                    EvalutionForms ef = _ef.FirstOrDefault();
+
+                    //测试数据查找评价表
+                    ms.Add(new MsItem("测试数据 查找的评价表", ef));
+
+                    //执行操作 存入评价
+                    db.SaveChanges();
+                   
+
+
+                    //2） 修改分数  如果不能保存 若没有人评价 则没有评价记录就不用查找了 算分等。。
+
+                    //查找出多少人提交了对ef 此评价表的 评价
+                    IQueryable<Assessment> _ae = db.Assessment.Where(x => x.EvaTabId == ef.id) as IQueryable<Assessment>;
+                    if (_ae.Count() > 0)
+                    {
+                        //记录人数
+                        int eNum = _ae.Count();
+
+                        //TSET: 记录人数
+                        ms.Add(new MsItem("TSET:提交了对ef 此评价表的人数", eNum));
+
+                        //TSET: 所有给评价表评价的评价记录
+                        ms.Add(new MsItem("TSET:所有给评价表评价的评价记录", _ae.ToList()));
+                        //清空从新计算
+                        ef.score = 0;
+                        //遍历 所有给评价表评价的评价记录
+                        foreach (Assessment a in _ae.ToList())
+                        {
+                            ef.score += a.AllScore;
+                        }
+
+
+                        //取平均
+                        ef.score = (ef.score / eNum);
+                        //TSET: 取平均
+                        ms.Add(new MsItem("TSET: 评价表取平均", ef.score));
+                    }
+
+                   
+
+
+                    _ct = db.CourseTemplates.Where(x => x.id == assessment.CourseId).Take(1) as IQueryable<CourseTemplates>;
                     //取出用户评价的 课程模板表对象
                     CourseTemplates ct = _ct.FirstOrDefault();
+
+                    //TSET: 取出课程模板表对象
+                    ms.Add(new MsItem("TSET:取出课程模板表对象", ct));
 
                     //查找出多少人提交了对ed 此对象 评价表的 评价
                     IQueryable<Assessment> _ac = db.Assessment.Where(x => x.CourseId == ct.id) as IQueryable<Assessment>;
                     //记录人数
-                    int cNum = _ac.Count();
-                    foreach (Assessment a in _ac.ToList())
+                    if (_ct.Count() > 0)
                     {
-                        ct.CourseScore += a.AllScore;
+                        int cNum = _ac.Count();
+
+
+                        //TSET: cNum
+                        ms.Add(new MsItem("TSET:cNum", cNum));
+
+                        //清空从新计算
+                        ct.CourseScore = 0;
+                        foreach (Assessment a in _ac.ToList())
+                        {
+                            ct.CourseScore += a.AllScore;
+                        }
+                        //取平均
+                        ct.CourseScore = (ct.CourseScore / cNum);
+                        //TSET: 取平均
+                        ms.Add(new MsItem("TSET:ct取平均", ct.CourseScore));
                     }
-                    //取平均
-                    ct.CourseScore = ct.CourseScore / cNum;
+                    
 
                     //修改评价表分数
                     db.Entry(ef).State = EntityState.Modified;
@@ -133,10 +194,13 @@ namespace CTEP.Controllers
                     db.Entry(ct).State = EntityState.Modified;
 
                     db.SaveChanges();
+
+                    return Json(ms);
                 }
             }
             catch (Exception ex )
             {
+                
                 return Json(ex.ToString());
             }
             

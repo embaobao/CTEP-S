@@ -3,26 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using CTEP.Controllers;
 using CTEP.Models;
+using Newtonsoft.Json;
+
 
 namespace CTEP.Models
 {
-    /// <summary>
-    /// 消息项
-    /// </summary>
-    /// <typeparam name="V">值</typeparam>
-    public class MsItem <V>:BaseController
+    
+    public class MsItem 
     {
-        int StatusNum { get; set; }
+        public int StatusNum { get; set; }
 
-        string title { get; set; }
+        public string title { get; set; }
 
-        JsonResult body { get; set; }
-        public MsItem(V val) {
+        public object body { get; set; }
+        public MsItem(object val) {
             StatusNum = 0;
-            title = "MS";
-            body = Json(val);
+            title = "jsonString";
+            body = JsonConvert.SerializeObject(val);
+        }
+        public MsItem(string title,object val)
+        {
+            StatusNum = 0;
+            this.title = title;
+            body = JsonConvert.SerializeObject(val);
         }
 
     }
