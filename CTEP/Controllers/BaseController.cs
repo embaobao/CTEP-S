@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using CTEP.Models;
 using System.Runtime.Remoting.Messaging;
+using System.Data.Entity;
 
 namespace CTEP.Controllers
 {
@@ -18,7 +19,6 @@ namespace CTEP.Controllers
                 {
                     db = new CTEBdbEntities();
                     CallContext.SetData("db", db);
-
                 }
                 return db;
             }
