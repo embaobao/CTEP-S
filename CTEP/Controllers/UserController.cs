@@ -9,6 +9,48 @@ namespace CTEP.Controllers
 {
     public class UserController : BaseController
     {
+
+
+
+        /// <summary>
+        /// 注册接口
+        /// </summary>
+        /// <param name="user">绑定用户对象</param>
+        /// <returns>用户对象 id小于0 则登录失败</returns>
+        [HttpPost]
+        [Obsolete]
+        public ActionResult Register([Bind(Include = "id,email,pw,role,status")] Users user)
+        {
+            try
+            {
+                if (SendMail(user)) {
+                    //AddData<Users>(new Users { email = user.email, pw = user.pw, role = user.role, status = 0 });
+                }
+            }
+            catch (Exception)
+            {
+                return Json(false);
+            }
+            return Json(true);
+        }
+
+
+
+
+        [HttpGet]
+        public ActionResult AccountActive(string user) {
+            try
+            {
+                AddData<Users>(FromBase64<Users>(user));
+            }
+            catch (Exception ex)
+            {
+                return Json("账户激活失败!"+ex.ToString(),JsonRequestBehavior.AllowGet);
+            }
+            return Json("账户激活成功！", JsonRequestBehavior.AllowGet);
+        }
+
+
         /// <summary>
         /// 登录接口
         /// </summary>
@@ -95,7 +137,7 @@ namespace CTEP.Controllers
         }
 
         [HttpPost]
-        public ActionResult EvaluForm0([Bind(Include = "id,email,pw,role,status")] Users user)
+        public ActionResult EvaluForm([Bind(Include = "id,email,pw,role,status")] Users user)
         {
             //验证用户
             IQueryable<Users> _users = db.Users.Where(x => x.email == user.email && x.pw == user.pw && x.role == user.role && x.status == 1).Take(1) as IQueryable<Users>;
@@ -103,6 +145,9 @@ namespace CTEP.Controllers
             List<BandTabs> us = null;
             //存储评价表
             List<EvalutionForms> ef = new List<EvalutionForms>();
+            //建立查找评价表准备
+            IQueryable<EvalutionForms> _ef = null;
+
             //如果用户验证通过
             if (_users.Count() > 0)
             {
@@ -114,35 +159,50 @@ namespace CTEP.Controllers
                 //如果用户有绑定信息
                 if (_ui.Count() > 0)
                 {
-                    //建立查找评价表准备
-                    IQueryable<EvalutionForms> _ef = null;
-
-                    us = _ui.ToList();
-                    //遍历绑定表查找评价
-                    foreach (BandTabs band in us)
+                    //如果角色是评价者用户
+                    if (user.role == 0)
                     {
-                        //如果绑定类型为 课程 即 评价表ID 绑定？
-                        if (band.type == 0)
+
+
+                        us = _ui.ToList();
+                        //遍历绑定表查找评价
+                        foreach (BandTabs band in us)
                         {
-                            // 绑定的评价表
-                            _ef = db.EvalutionForms.Where(x => x.id == band.BandiId) as IQueryable<EvalutionForms>;
-                            //查找到的绑定表添加到表列表中
-                            ef.Add(_ef.FirstOrDefault());
-                        }
-                        //如果不是ID绑定 是其他 就是班级绑定 那么就搜素评价表 中绑定值
-                        else {
-                            //否则 则搜索评价表中 绑定值与用户绑定的 课程
-                            _ef = db.EvalutionForms.Where(x => x.BandiId == band.BandiId) as IQueryable<EvalutionForms>;
-                            //遍历根据绑定值查出的评价表 添加到表列表中
-                            foreach (EvalutionForms form in _ef.ToList())
+                            //如果绑定类型为 课程 即 评价表ID 绑定？
+                            if (band.type == 0)
                             {
-                                ef.Add(form);
+                                // 绑定的评价表
+                                _ef = db.EvalutionForms.Where(x => x.id == band.BandiId) as IQueryable<EvalutionForms>;
+                                //查找到的绑定表添加到表列表中
+                                ef.Add(_ef.FirstOrDefault());
+                            }
+                            //如果不是ID绑定 是其他 就是班级绑定 那么就搜素评价表 中绑定值
+                            else
+                            {
+                                //否则 则搜索评价表中 绑定值与用户绑定的 课程
+                                _ef = db.EvalutionForms.Where(x => x.BandiId == band.BandiId) as IQueryable<EvalutionForms>;
+                                //遍历根据绑定值查出的评价表 添加到表列表中
+                                foreach (EvalutionForms form in _ef.ToList())
+                                {
+                                    ef.Add(form);
+                                }
                             }
                         }
-                        
                     }
-                }
 
+
+
+                    //如果账户是角色是发起评价者
+                    else if (user.role == 1)
+                    {
+                        //建立查找评价表准备
+                        _ef = db.EvalutionForms.Where(x => x.CreateId == user.id) as IQueryable< EvalutionForms>;
+                        ef = _ef.ToList();
+                    }
+
+
+
+                }
             }
 
 
@@ -152,11 +212,7 @@ namespace CTEP.Controllers
             return Json(ef);
         }
 
-       
 
-        // POST: UserInfoes/Create
-        // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
-        // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         public ActionResult PutInfo([Bind(Include = "id,img,gender,name,descrition,address,BandiID")] UserInfo userInfo)
         {
@@ -168,7 +224,8 @@ namespace CTEP.Controllers
                     {
                         db.Entry(userInfo).State = EntityState.Modified;
                     }
-                    else {
+                    else
+                    {
                         db.UserInfo.Add(userInfo);
                     }
                     db.SaveChanges();
@@ -179,10 +236,12 @@ namespace CTEP.Controllers
 
                 return Json(false);
             }
-            
-            
+
+
             return Json(true);
         }
+
+
 
 
 

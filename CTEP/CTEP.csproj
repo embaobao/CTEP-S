@@ -83,6 +83,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.7.0\lib\net45\System.Web.Http.OData.dll</HintPath>
     </Reference>
@@ -250,6 +251,7 @@
     <Compile Include="Models\CTEPSysCofig.cs">
       <DependentUpon>CTEPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EMail.cs" />
     <Compile Include="Models\EvalutionForms.cs">
       <DependentUpon>CTEPModel.tt</DependentUpon>
     </Compile>
@@ -262,6 +264,7 @@
     <Compile Include="Models\SchoolBandisTabs.cs">
       <DependentUpon>CTEPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Tools.cs" />
     <Compile Include="Models\University.cs">
       <DependentUpon>CTEPModel.tt</DependentUpon>
     </Compile>

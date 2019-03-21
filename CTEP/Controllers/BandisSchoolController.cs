@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,8 +9,8 @@ namespace CTEP.Controllers
 {
     public class BandisSchoolController : BaseController
     {
-
-
+       
+   
 
 
         // POST: BandisSchool/School
@@ -143,8 +144,8 @@ namespace CTEP.Controllers
 
                     var Controller = DependencyResolver.Current.GetService<BandisSchoolController>();
                     var result = Controller.SetBandsiSchool0(sB);
-                    return result;
 
+                    return result;
                 }
                 
             }
@@ -166,7 +167,6 @@ namespace CTEP.Controllers
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult PutBandsiSchool([Bind(Include = "id,UniversityName,AcademyName,GradeNum,ClassNum")] SchoolBandisTabs schoolBandisTabs)
         {
             try
