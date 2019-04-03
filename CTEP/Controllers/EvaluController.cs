@@ -348,16 +348,17 @@ namespace CTEP.Controllers
             // 测试队列
             MsList ms = new MsList();
 
-            ms.Add(new MsJson("Post过来的ID", id)); // 测试完成，数据到达！
+            //ms.Add(new MsJson("Post过来的ID", id)); // 测试完成，数据到达！
             IQueryable<EvalutionForms> _el = null;
 
-            IQueryable<Assessment> _al = db.Assessment.Where(x => x.id == id);
+            IQueryable<Assessment> _al = db.Assessment.Where(x => x.id == id) as IQueryable<Assessment>;
             foreach (Assessment a in _al.ToList())
             {
                 _el = db.EvalutionForms.Where(x => x.id == a.EvaTabId);
-                ms.Add(new MsJson(a));
-                ms.Add(new MsJson(_el.FirstOrDefault()));
+                EvalutionForms ef = _el.FirstOrDefault();
+                ms.Add(new MsJson(ef.id,ef.title, a));
             }
+            
             return Json(ms);
         }
         /// <summary>

@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CTEP.BundleConfig" Collapsed="true">
+    <Position X="51.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.FilterConfig" Collapsed="true">
+    <Position X="44.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.RouteConfig" Collapsed="true">
+    <Position X="53.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.WebApiConfig" Collapsed="true">
+    <Position X="46.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\WebApiConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.WebApiApplication" Collapsed="true">
+    <Position X="44.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ApiDescriptionExtensions" Collapsed="true">
+    <Position X="46.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Areas\HelpPage\ApiDescriptionExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.HelpPageConfig" Collapsed="true">
+    <Position X="53.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\App_Start\HelpPageConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.HelpPageAreaRegistration" Collapsed="true">
+    <Position X="51.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\HelpPageAreaRegistration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.HelpPageConfigurationExtensions" Collapsed="true">
+    <Position X="43" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAABAICACACEAACGSCAAAADABAAAEMAAAAAIEA=</HashCode>
+      <FileName>Areas\HelpPage\HelpPageConfigurationExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.HelpPageSampleGenerator" Collapsed="true">
+    <Position X="44.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAYAARQAQAAEAJgAAAQAAgAAEAgFAAAAABCAAAI=</HashCode>
+      <FileName>Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.HelpPageSampleKey" Collapsed="true">
+    <Position X="46.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAABAAAgAgAAAAAAAAAAAAICQAAAEAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ImageSample" Collapsed="true">
+    <Position X="48.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAAAIAAAAIAAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\SampleGeneration\ImageSample.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.InvalidSample" Collapsed="true">
+    <Position X="50" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAEgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\SampleGeneration\InvalidSample.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ObjectGenerator" Collapsed="true">
+    <Position X="48.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABDAoAAAAAACAEAICAAAYAAACAAAAAAgCAgAAAAIA=</HashCode>
+      <FileName>Areas\HelpPage\SampleGeneration\ObjectGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.TextSample" Collapsed="true">
+    <Position X="44.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAAAIAAAAAACAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\SampleGeneration\TextSample.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.XmlDocumentationProvider" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="48.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QIEAAAAIBAEAQAAABIAAAAAAAAAAAAAAAAAAAAAAAkg=</HashCode>
+      <FileName>Areas\HelpPage\XmlDocumentationProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.Controllers.HelpController" Collapsed="true">
+    <Position X="48.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAABAAAAAAAAAAAAAAAAAAAAAAAgAEAAAAgAAA=</HashCode>
+      <FileName>Areas\HelpPage\Controllers\HelpController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ModelDescriptions.CollectionModelDescription" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ModelDescriptions.ComplexTypeModelDescription">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ModelDescriptions.DictionaryModelDescription" Collapsed="true">
+    <Position X="9.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ModelDescriptions.EnumTypeModelDescription" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ModelDescriptions.EnumValueDescription" Collapsed="true">
+    <Position X="53.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ModelDescriptions.KeyValuePairModelDescription" Collapsed="true">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ModelDescriptions.ModelDescription" Collapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\ModelDescriptions\ModelDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator" Collapsed="true">
+    <Position X="51.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGQBAAJAABAAACBAgAAAAASBAAAAAAAAAEAACAQAAA=</HashCode>
+      <FileName>Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ModelDescriptions.ModelNameAttribute" Collapsed="true">
+    <Position X="53.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ModelDescriptions.ModelNameHelper" Collapsed="true">
+    <Position X="43" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ModelDescriptions.ParameterAnnotation" Collapsed="true">
+    <Position X="50" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ModelDescriptions.ParameterDescription" Collapsed="true">
+    <Position X="51.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAQAQAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\ModelDescriptions\ParameterDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.ModelDescriptions.SimpleTypeModelDescription" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Areas.HelpPage.Models.HelpPageApiModel" Collapsed="true">
+    <Position X="50" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAGBAAAAAAAAAAAAAgAAAAAAAUBAAAAAQAQAg=</HashCode>
+      <FileName>Areas\HelpPage\Models\HelpPageApiModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.AcademysController" Collapsed="true">
+    <Position X="24.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\AcademysController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.AccountInfoesController" Collapsed="true">
+    <Position X="31.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\AccountInfoesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.AssessmentsController" Collapsed="true">
+    <Position X="38.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\AssessmentsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.BandisSchoolController" Collapsed="true">
+    <Position X="2.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEEAgAACAAAAAAAAAAAAAAAAAAACAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\BandisSchoolController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.BandTabsController" Collapsed="true">
+    <Position X="6.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\BandTabsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.BaseController" Collapsed="true">
+    <Position X="21.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAABAAEAAIAUAAAAARAAAIAAABAAAggCAAAAAIAQAAA=</HashCode>
+      <FileName>Controllers\BaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.ClassNumsController" Collapsed="true">
+    <Position X="43" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ClassNumsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.CommentTemplatesController" Collapsed="true">
+    <Position X="15.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CommentTemplatesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.CourseTemplatesController" Collapsed="true">
+    <Position X="20.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CourseTemplatesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.CTEPSysCofigsController" Collapsed="true">
+    <Position X="27" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CTEPSysCofigsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.EvaluController" Collapsed="true">
+    <Position X="33.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwABAAAACAAAAAAAAAAAAAAAAAAIAAAAAAAAGEQAA=</HashCode>
+      <FileName>Controllers\EvaluController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.EvalutionFormsController" Collapsed="true">
+    <Position X="40.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\EvalutionFormsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.GradsController" Collapsed="true">
+    <Position X="4.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\GradsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.HomeController" Collapsed="true">
+    <Position X="9" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.SchoolBandisTabsController" Collapsed="true">
+    <Position X="11.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\SchoolBandisTabsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.UniversitiesController" Collapsed="true">
+    <Position X="13.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\UniversitiesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.UserController" Collapsed="true">
+    <Position X="18" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIACAAAABAAAAAAAAAAAAAQBAAAAAAAwAEAAAEA=</HashCode>
+      <FileName>Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.UserInfoesController" Collapsed="true">
+    <Position X="22.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\UserInfoesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.UsersController" Collapsed="true">
+    <Position X="29.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\UsersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.UserSetTabsController" Collapsed="true">
+    <Position X="36" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\UserSetTabsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Controllers.ValuesController" Collapsed="true">
+    <Position X="43" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAACAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\ValuesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.CTEBdbEntities" Collapsed="true">
+    <Position X="48.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAACAAAACAIQAIAQAQAEQAAARIAAACIAAABAAA=</HashCode>
+      <FileName>Models\CTEPModel.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.Academys" Collapsed="true">
+    <Position X="43" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAgAAAAAAAAAgA=</HashCode>
+      <FileName>Models\Academys.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.AccountInfo" Collapsed="true">
+    <Position X="44.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAABAAAgA=</HashCode>
+      <FileName>Models\AccountInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.Assessment" Collapsed="true">
+    <Position X="48.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAFAAAABAAAACAEAAAhEAQAAAAAAAAAAAAAAQAAAgA=</HashCode>
+      <FileName>Models\Assessment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.BandTabs" Collapsed="true">
+    <Position X="50" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAQAAAgA=</HashCode>
+      <FileName>Models\BandTabs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.ClassNum" Collapsed="true">
+    <Position X="53.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAEAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ClassNum.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.CommentTemplates" Collapsed="true">
+    <Position X="44.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\CommentTemplates.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.CourseTemplates" Collapsed="true">
+    <Position X="46.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAQAAAEAACAAiAAAAAAQAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\CourseTemplates.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.CTEPSysCofig" Collapsed="true">
+    <Position X="50" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAggAEAAgEAAAAAAAAAAAAAAAAgAAAAAAAAgAAgA=</HashCode>
+      <FileName>Models\CTEPSysCofig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.EvalutionForms" Collapsed="true">
+    <Position X="43" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAQCAEkAAAAAAIAIAAAQEEAAAAAAAAAQAAAgA=</HashCode>
+      <FileName>Models\EvalutionForms.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.Grads" Collapsed="true">
+    <Position X="46.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAgAAAAAAAAAgA=</HashCode>
+      <FileName>Models\Grads.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.SchoolBandisTabs" Collapsed="true">
+    <Position X="43" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAACCAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\SchoolBandisTabs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.University" Collapsed="true">
+    <Position X="48.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\University.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.UserInfo" Collapsed="true">
+    <Position X="50" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAgAAAAAIEAAAAAgAAAAAAAgE=</HashCode>
+      <FileName>Models\UserInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.Users" Collapsed="true">
+    <Position X="51.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAgAAAAABAAAAAAgAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\Users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.UserSetTabs" Collapsed="true">
+    <Position X="53.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\UserSetTabs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.EMail" Collapsed="true">
+    <Position X="51.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAgAAAAAAgEAAAGABAAAgIAAIAABAAQBAIAAAAAQ=</HashCode>
+      <FileName>Models\EMail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.MsItem" Collapsed="true">
+    <Position X="1.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAEABIAAAAAAAAAQAgAAAAAAAAAAIAAgA=</HashCode>
+      <FileName>Models\MsItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.MsNonJson" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MsItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.MsJson" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MsItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.Mssage" Collapsed="true">
+    <Position X="46.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAgAAAAgAAQAAIAAAEAAgAAAACAAAAAAIAAAABAAA=</HashCode>
+      <FileName>Models\Mssage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTEP.Models.Tools" Collapsed="true">
+    <Position X="46.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAIAAAAAAAAAiAAAAAAAAAgA=</HashCode>
+      <FileName>Models\Tools.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMsListEP.Models.MsList" Collapsed="true">
+    <Position X="44.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MsList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="CTEP.Areas.HelpPage.ModelDescriptions.IModelDocumentationProvider" Collapsed="true">
+    <Position X="43" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="CTEP.Areas.HelpPage.SampleDirection" Collapsed="true">
+    <Position X="43" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\HelpPage\SampleGeneration\SampleDirection.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

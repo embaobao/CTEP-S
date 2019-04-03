@@ -326,6 +326,7 @@
     <Content Include="Models\CTEPModel.edmx.diagram">
       <DependentUpon>CTEPModel.edmx</DependentUpon>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -421,6 +422,8 @@
     <Content Include="Views\ClassNums\Details.cshtml" />
     <Content Include="Views\ClassNums\Edit.cshtml" />
     <Content Include="Views\ClassNums\Index.cshtml" />
+    <Content Include="Views\User\AccountActive.cshtml" />
+    <Content Include="Views\Shared\_NoneLay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -460,7 +463,6 @@
     <Folder Include="Views\BandisSchool\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Evalu\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

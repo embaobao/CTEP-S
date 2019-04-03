@@ -35,19 +35,46 @@ namespace CTEP.Controllers
         }
 
 
+        /// <summary>
+        /// 改变用户状态为未激活
+        /// </summary>
+        /// <param name="user">绑定用户对象</param>
+        /// <returns></returns>
+        [HttpPost]
+        [Obsolete]
+        public ActionResult ChangeStatus([Bind(Include = "id,email,pw,role,status")] Users user)
+        {
+            try
+            {
+                if (UserNumForId(user.id) > 0)
+                {
+                    ChangeData<Users>(new Users { id=user.id, email = user.email , pw =user.pw , role= user.role, status=0});
+                }
+            }
+            catch (Exception)
+            {
+                return Json(false);
+            }
+            return Json(true);
+        }
+
 
 
         [HttpGet]
         public ActionResult AccountActive(string user) {
+            Users u = null;
+            ViewBag.Title = "EMB账户激活";
             try
             {
-                AddData<Users>(FromBase64<Users>(user));
+                u = FromBase64<Users>(user);
+                AddData<Users>(u);
+                ViewBag.txt = "EMB-账户:"+u.email + "激活成功！";
             }
             catch (Exception ex)
             {
-                return Json("账户激活失败!"+ex.ToString(),JsonRequestBehavior.AllowGet);
+                ViewBag.txt = "EMB-账户激活失败！错误："+ex.ToString();
             }
-            return Json("账户激活成功！", JsonRequestBehavior.AllowGet);
+            return View();
         }
 
 
@@ -73,6 +100,34 @@ namespace CTEP.Controllers
             //user.email = user.email + DateTime.Now;
             return Json(u);
         }
+
+        /// <summary>
+        /// 邮箱验证接口
+        /// </summary>
+        /// <param name="user">绑定用户对象</param>
+        /// <returns>用户对象 id小于0 则登录失败</returns>
+        [HttpPost]
+        public ActionResult IsMail(string email)
+        {
+            IQueryable<Users> _users = db.Users.Where(x => x.email ==email).Take(1) as IQueryable<Users>;
+
+            if (_users.Count() > 0)
+            {
+                return Json(true);
+            }
+            else
+            {
+                return Json(false);
+            }
+
+           
+          
+        }
+
+
+
+
+
         [HttpPost]
         public ActionResult Info([Bind(Include = "id,email,pw,role,status")] Users user)
         {

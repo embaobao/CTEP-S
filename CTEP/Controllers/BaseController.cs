@@ -24,6 +24,11 @@ namespace CTEP.Controllers
                 return db;
             }
         }
+        /// <summary>
+        /// 查询评价表是否存在
+        /// </summary>
+        /// <param name="id">评级表ID</param>
+        /// <returns>评价表数量</returns>
         public int EFormsNumForId(int? id)
         {
 
@@ -45,6 +50,11 @@ namespace CTEP.Controllers
             }
             return num;
         }
+        /// <summary>
+        ///  查询课程模板是否存在
+        /// </summary>
+        /// <param name="id">课程模板id</param>
+        /// <returns>课程模板数量</returns>
         public int CTNumForId(int? id)
         {
             int num = 0;
@@ -63,6 +73,12 @@ namespace CTEP.Controllers
             }
             return num;
         }
+
+        /// <summary>
+        /// 查询学校绑定记录是否存在
+        /// </summary>
+        /// <param name="id">学校绑定记录id</param>
+        /// <returns>学校绑定记录数量</returns>
         public int SBNumForId(int? id)
         {
             int num = 0;
@@ -81,6 +97,53 @@ namespace CTEP.Controllers
             }
             return num;
         }
+
+        /// <summary>
+        /// 查询用户记录是否存在
+        /// </summary>
+        /// <param name="id">用户记录id</param>
+        /// <returns>用户记录数量</returns>
+        public int UserNumForId(int? id)
+        {
+            int num = 0;
+
+            try
+            {
+                if (id < 0)
+                {
+                    return num;
+                }
+                num = db.SchoolBandisTabs.Where(x => x.id == id).Count();
+            }
+            catch (Exception)
+            {
+                num = -1;
+            }
+            return num;
+        }
+
+
+        public int Authority(int ? id)
+        {
+            int role = -1;
+            try
+            {
+                if (UserNumForId(id)>0) {
+                    Users user = db.Users.Where(x => x.id == id).Take(1).FirstOrDefault();
+                    role = (int)user.role;
+                }
+                
+
+            }
+            catch (Exception)
+            {
+
+                return role;
+            }
+
+            return role;
+        }
+
 
         /// <summary>
         /// 对象转化成Json
