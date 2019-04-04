@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>课堂教学评价管理平台|EMB|朱盟的毕业设计</title>
+    <meta
+      name="description"
+      content="Adding elasticity with SVG shape animations"
+    />
+    <meta
+      name="keywords"
+      content="svg, morph, snap.svg, effect, animation, css, shape"
+    />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="images/ico/ctep.png" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css" />
+    <script src="js/snap.svg-min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/base64.js"></script>
+    <script src="js/layer.js"></script>
+    <script src="js/cookie.js"></script>
+
+    <script src="js/pos.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <style>
+      .fixed-top {
+        margin-bottom: 0;
+      }
+
+      .card {
+        margin-top: 2em;
+        border: 0px;
+      }
+
+      .jumbotron {
+        color: #13227a;
+      }
+
+      .menu-tip-ico {
+        position: relative;
+        right: 1.4em;
+        top: 0.8em;
+        padding: 0;
+        margin: 0;
+      }
+      td a{
+        margin-left: 0.4em;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="menu" class="menu">
+      <button class="menu__handle"><span>Menu</span></button>
+      <div class="menu__inner">
+        <ul>
+          <li>
+            <a id="login" href="index.html">
+              <p align="center">
+                <span>
+                  Bui
+                  <img
+                    src="images/app/biu.png"
+                    class=" img-thumbnail img-fluid"
+                    width="36px"
+                  />
+                  <span class="badge badge-dark menu-tip-ico">2</span>
+                </span>
+              </p>
+            </a>
+          </li>
+
+          <li>
+            <a href="Evalution.html">
+              <p align="center">
+                <span>
+                  判
+                  <img
+                    src="images/app/evaluation.png"
+                    class=" img-thumbnail img-fluid"
+                    width="36px"
+                  />
+                  <span class="badge badge-danger menu-tip-ico">3</span>
+                </span>
+              </p>
+            </a>
+          </li>
+          <li>
+            <a href="History.html">
+              <p align="center">
+                <span>
+                  观
+                  <img
+                    src="images/app/history.png"
+                    class=" img-thumbnail img-fluid"
+                    width="36px"
+                  />
+                  <span class="badge badge-warning menu-tip-ico">3</span>
+                </span>
+              </p>
+            </a>
+          </li>
+          <li>
+            <a href="Community.html">
+              <p align="center">
+                <span>
+                  语
+                  <img
+                    src="images/app/community.png"
+                    class=" img-thumbnail img-fluid"
+                    width="36px"
+                  />
+                  <span class="badge badge-success menu-tip-ico">3</span>
+                </span>
+              </p>
+            </a>
+          </li>
+          <li>
+            <a href="Edit.html">
+              <p align="center">
+                <span>
+                  书
+                  <img
+                    src="images/app/write.png"
+                    class=" img-thumbnail img-fluid"
+                    width="36px"
+                  />
+                  <span class="badge badge-primary menu-tip-ico">3</span>
+                </span>
+              </p>
+            </a>
+          </li>
+
+          <li>
+            <a href="register.html" target="_blank">
+              <p align="center">
+                <span>
+                  <img
+                    src="images/app/register.png"
+                    class=" img-thumbnail img-fluid"
+                    width="32px"
+                  />
+                </span>
+
+                | 入
+              </p>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div
+        class="morph-shape"
+        data-morph-open="M300-10c0,0,295,164,295,410c0,232-295,410-295,410"
+        data-morph-close="M300-10C300-10,5,154,5,400c0,232,295,410,295,410"
+      >
+        <svg
+          width="100%"
+          height="100%"
+          viewbox="0 0 600 800"
+          preserveaspectratio="none"
+        >
+          <path fill="none" d="M300-10c0,0,0,164,0,410c0,232,0,410,0,410" />
+        </svg>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-sm fixed-top">
+      <a class="navbar-brand" href="#">
+        <img
+          class=" img-thumbnail img-fluid"
+          width="32px"
+          src="images/app/user.png"
+        />
+      </a>
+      <span class="navbar-text">
+        <small>吃火星的宝宝</small>
+      </span>
+    </nav>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="container">
+          <div class="jumbotron">
+            <h4>观</h4>
+            <p class="card-text">观 是....</p>
+            <div class="container">
+               
+                    <table class="table table-hover table-responsive-sm">
+                      <thead>
+                        <tr>
+                          <th>评价课程</th>
+                          <th>评价分数</th>
+                          <th>操作:</th>
+                        </tr>
+                      </thead>
+                      <tbody id="assList">
+                      </tbody>
+                    </table>
+                  </div>
+          </div>
+
+       
+
+              
+
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav justify-content-center navbar-light  ">
+      <span class="navbar-text">
+        <small>Design Power By EMB (吃火星的宝宝)-15级-金融三班朱盟 .</small>
+      </span>
+
+      <ul class="nav ">
+        <li class="nav-item">
+          <a class="nav-link text-secondary" href="javascript:void(0)"
+            >关于我</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-secondary" href="javascript:void(0)"
+            >问题反馈</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- <script src="js/classie.js"></script> -->
+    <script>
+      (function() {
+        function SVGMenu(el, options) {
+          this.el = el;
+          this.init();
+        }
+
+        SVGMenu.prototype.init = function() {
+          this.trigger = this.el.querySelector("button.menu__handle");
+          this.shapeEl = this.el.querySelector("div.morph-shape");
+
+          var s = Snap(this.shapeEl.querySelector("svg"));
+          this.pathEl = s.select("path");
+          this.paths = {
+            reset: this.pathEl.attr("d"),
+            open: this.shapeEl.getAttribute("data-morph-open"),
+            close: this.shapeEl.getAttribute("data-morph-close")
+          };
+
+          this.isOpen = false;
+
+          this.initEvents();
+        };
+
+        SVGMenu.prototype.initEvents = function() {
+          this.trigger.addEventListener("click", this.toggle.bind(this));
+        };
+
+        SVGMenu.prototype.toggle = function() {
+          var self = this;
+
+          if (this.isOpen) {
+            classie.remove(self.el, "menu--anim");
+            setTimeout(function() {
+              classie.remove(self.el, "menu--open");
+            }, 250);
+          } else {
+            classie.add(self.el, "menu--anim");
+            setTimeout(function() {
+              classie.add(self.el, "menu--open");
+            }, 250);
+          }
+          this.pathEl.stop().animate(
+            {
+              path: this.isOpen ? this.paths.close : this.paths.open
+            },
+            350,
+            mina.easeout,
+            function() {
+              self.pathEl.stop().animate(
+                {
+                  path: self.paths.reset
+                },
+                800,
+                mina.elastic
+              );
+            }
+          );
+
+          this.isOpen = !this.isOpen;
+        };
+
+        new SVGMenu(document.getElementById("menu"));
+      })();
+    </script>
+  </body>
+</html>

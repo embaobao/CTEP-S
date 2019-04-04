@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>评价表</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/iconfont.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/base64.js"></script>
+    <script src="js/layer.js"></script>
+    <!-- <script src="js/cookie.js"></script> -->
+    <!-- <script src="js/main.js"></script> -->
+
+    <style>
+        .icon {
+            width: 3em;
+            height: 3em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        body {
+            padding: 20px;
+        }
+
+        .demo-input {
+            padding-left: 10px;
+            height: 38px;
+            min-width: 262px;
+            line-height: 38px;
+            border: 1px solid #e6e6e6;
+            background-color: #fff;
+            border-radius: 2px;
+        }
+
+        .demo-footer {
+            padding: 50px 0;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .demo-footer a {
+            padding: 0 5px;
+            color: #01AAED;
+        }
+    </style>
+</head>
+
+<body>
+
+  
+
+    <div class="container">
+
+
+
+            <div id="evpage">
+                    <label for="customRange" style="font-size: 1.5rem">评得:50</label>
+                    <span id="emoj">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-baituanzibiaoqingku_dakeshui"></use>
+                        </svg>
+                    </span>
+                    <input type="range" class="custom-range" id="customRange" name="points1">
+                </div>
+
+        <script>
+            String.prototype.format = function () {
+                if (arguments.length == 0) return this;
+                var param = arguments[0];
+                var s = this;
+                if (typeof (param) == 'object') {
+                    for (var key in param)
+                        s = s.replace(new RegExp("\\{" + key + "\\}", "g"), param[key]);
+                    return s;
+                } else {
+                    for (var i = 0; i < arguments.length; i++)
+                        s = s.replace(new RegExp("\\{" + i + "\\}", "g"), arguments[i]);
+                    return s;
+                }
+            }
+
+            function Imgs(imgName) {
+                let svg =
+                    '<svg class="icon " aria-hidden="true"> <use xlink:href="#icon-baituanzibiaoqingku_{0}"></use</svg>';
+                return svg.format(imgName);
+            }
+
+            layer.open({
+                type: 0,
+                title: "开始评价",
+                content: $('#evpage'),
+            });
+
+            var img_id = "#emoj";
+            var img = $(img_id);
+            var ran = $("#customRange");
+            console.log(ran.val());
+            ran.bind("input propertychange", function (event) {
+                // console.log();
+                $('label[for=' + ran.attr('id') + ']').text("评得:" + ran.val() + "分");
+
+                // console.log($("#customRange").val());
+                let score = ran.val();
+                if (score < 20) {
+                    img.html(Imgs("ku"));
+                    layer.tips('我可要哭给你看了昂！', img_id);
+                } else if (score >= 20 && score < 30) {
+                    img.html(Imgs("suan"));
+                    layer.tips('我是不是做的不够好？', img_id);
+                } else if (score >= 30 && score < 40) {
+                    img.html(Imgs("bugaoxing"));
+                    layer.tips('我记着你了！', img_id);
+                } else if (score >= 40 && score < 50) {
+                    img.html(Imgs("lengmolian"));
+                    layer.tips('无所谓~', img_id);
+                } else if (score >= 50 && score < 60) {
+                    img.html(Imgs("burenzhishi"));
+                    layer.tips('看不到，看不到...分数~', img_id);
+                } else if (score >= 60 && score < 70) {
+                    img.html(Imgs("tushetou"));
+                    layer.tips('万水千山总是情，多给一分行不行~', img_id);
+                } else if (score >= 70 && score < 80) {
+                    img.html(Imgs("weixiao"));
+                    layer.tips('嗯~，有前途', img_id);
+                } else if (score >= 80 && score < 90) {
+                    img.html(Imgs("zhayan"));
+                    layer.tips('我还可以吧？', img_id);
+                } else if (score >= 90 && score < 100) {
+                    img.html(Imgs("deyi"));
+                    layer.tips('学到了，才是王道！', img_id);
+                } else if (score = 100) {
+                    img.html(Imgs("se"));
+                    layer.tips('好，就是这里，别动了！', img_id);
+                }
+            });
+        </script>
+
+
+        <!-- 按钮：用于打开模态框 -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            创建评价表
+        </button>
+
+
+        <!-- 模态框 -->
+        <div class="modal  fade" id="myModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <!-- 模态框头部 -->
+                    <div class="modal-header">
+                        <h4 class="modal-title"> 评价表创建</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- 模态框主体 -->
+                    <div class="modal-body">
+
+
+
+
+                        <form action="#">
+
+
+                            <div class="form-group">
+                                <label for="usr">评价课程名:</label>
+                                <input type="text" class="form-control" id="usr">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="comment">描述:</label>
+                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="sel1">课程状态:</label>
+                                <select class="form-control" id="sel1">
+                                    <option>请选择...</option>
+                                    <option>公开</option>
+                                    <option>私人</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="sel1">课程时间:</label>
+                                <select class="form-control" id="sel1">
+                                    <option>请选择...</option>
+                                    <option>周一</option>
+                                    <option>周二</option>
+                                    <option>周三</option>
+                                    <option>周四</option>
+                                    <option>周五</option>
+                                    <option>周六</option>
+                                    <option>周日</option>
+                                </select>
+                            </div>
+
+
+
+                            <div class="custom-control custom-file custom-control-inline">
+                                <input type="file" class="custom-file-input" id="customFile" name="filename">
+                                <label class="custom-file-label" for="customFile">课程图片</label>
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                <label for="usr">开始日期:</label>
+                                <input type="text" placeholder="请选择日期" class="form-control" id="stime">
+                                <label for="usr">开始时间:</label>
+                                <input type="text" placeholder="请选择时间" class="form-control time">
+                                <!--  -->
+                            </div>
+
+                            <div class="form-group">
+                                <label for="usr">结束日期:</label>
+                                <input type="text" placeholder="请选择日期" class="form-control" id="etime">
+                                <label for="usr">结束时间:</label>
+                                <input type="text" placeholder="请选择时间" class="form-control time">
+                            </div>
+
+
+
+                    </div>
+
+                    <!-- 模态框底部 -->
+                    <div class="modal-footer">
+                        <button class="btn btn-block">创建</button>
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button> -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/laydate.js"></script>
+    <!-- 改成你的路径 -->
+    <script>
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#stime' //指定元素
+        });
+
+        laydate.render({
+            elem: '#etime' //指定元素
+        });
+
+        laydate.render({
+            elem: '.time',
+            type: 'time'
+        });
+    </script>
+</body>
+
+</html>

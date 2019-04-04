@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>账户管理|EMB课堂教学评价管理平台|</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="refresh" content="">
+    <meta name="keywords" content="评价,课堂,教学评价,注册,管理平台" />
+    <meta name="description" content="课堂教学评价管理平台" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <!--设置该条属性，访问者将无法脱机浏览。-->
+    <meta http-equiv="refresh" content="" />
+    <meta name="viewport" content="width=device-width,
+        	initial-scale=1.0,
+        	maximum-scale=1.0, 
+        	user-scalable=no , 
+        	shrink-to-fit=no" />
+    <link rel="shortcut icon" href="images/ico/TEico.png">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <meta name="author" content="EMB|吃火星的宝宝 " />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/layer.js"></script>
+    <script src="js/base64.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+<style>
+    @media screen and (max-width: 330px) {
+        .card {
+            background: transparent;
+            padding: 0.8em;
+            margin: 1.4em auto;
+            width: 18em;
+        }
+
+        #tranLog {
+            position: relative;
+            left: 16em;
+            width: 32px;
+            padding: 2px;
+        }
+
+        .input-group {
+            margin: 0.8em auto;
+            padding: 0.4em;
+        }
+    }
+
+    @media screen and (min-width: 331px) {
+        .card {
+            background: transparent;
+            padding: 0.8em;
+            margin: 2.6em auto;
+            width: 22em;
+        }
+
+        #tranLog {
+            position: relative;
+            left: 20em;
+            width: 32px;
+            padding: 2px;
+        }
+
+        .input-group {
+            margin: 1.6em auto;
+            padding: 0.4em;
+        }
+    }
+
+    .container-fluid {
+        position: fixed;
+        top: 0;
+    }
+
+    .card-body {
+        background: white;
+    }
+
+    .card-footer,
+    .card-header {
+        background: transparent;
+        text-align: center;
+    }
+
+    #loginbtg {
+        display: none;
+    }
+</style>
+
+<body>
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-sm-0 col-md-2 ">
+
+            </div>
+            <div class="col-sm-12 col-md-8  ">
+
+                <div class="card rounded-0">
+                    <button id="tranLog" class="btn btn-sm btn-outline-light">
+                        <img src="images/app/transfer.png" width="24px" height="24px" data-toggle="tooltip"
+                            data-placement="top" title="O_O 要登录,还要注册？随您意!" />
+                    </button>
+
+                    <img data-toggle="tooltip" data-placement="right" title="( ఠൠఠ )哼哼 " src="images/app/user.png"
+                        alt="John Doe" class="mx-auto" style="width:4em;">
+                    <!-- align-self-center mx-auto -->
+
+                    <div class="card-header">
+                        <h5 id="titleTxt"> EMB-账户注册</h5>
+                    </div>
+
+                    <div class="card-body ">
+
+
+                        <!-- <form> -->
+
+
+                        <div class="input-group mb-3 ">
+                            <div class="input-group-prepend ">
+                                <span class="input-group-text rounded-0" data-toggle="tooltip" data-placement="left"
+                                    title="量力而行 😎选择账户的角色!">
+                                    <img src="images/app/role.png" width="24px" height="24px" /></span>
+                            </div>
+                            <select id="role" class="form-control rounded-0">
+                                <option value="0">学生</option>
+                                <option value="1">教师</option>
+                                <option value="2">管理员</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text rounded-0" data-toggle="tooltip" data-placement="left"
+                                    title=" ^_^ 您的邮箱!">
+                                    <img id="emailico" src="images/app/email.png" width="24px" height="24px" />
+                                </span>
+                            </div>
+                            <input id="email" type="email" class="form-control rounded-0" placeholder="告诉我您邮箱账户哦🤣^_^">
+
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text rounded-0" data-toggle="tooltip" data-placement="left"
+                                    title="😑您的密码!">
+                                    <img id="pwico" src="images/app/lock.png" width="24px" height="24px" />
+                                </span>
+                            </div>
+                            <input id="password" type="password" class="form-control rounded-0"
+                                placeholder="偷偷告诉我您的秘码😳^_^">
+
+                        </div>
+
+                        <div id="regesterbtg" class="input-group mb-3 ">
+
+                            <button id="regester" class="btn btn-outline-light mx-auto btn-block">
+                                <img data-toggle="tooltip" data-placement="bottom" title="加入我们!"
+                                    src="images/app/register.png" width="32px" height="32px" />注册
+                            </button>
+                        </div>
+
+                        <div id="loginbtg" class="input-group mb-3 ">
+                            <button id="login" class="btn btn-outline-light mx-auto btn-block">
+                                <img data-toggle="tooltip" data-placement="bottom" title="进坑—谢谢!"
+                                    src="images/app/login.png" width="32px" height="32px" />登录
+                            </button>
+                        </div>
+                        <!-- </form> -->
+
+                    </div>
+
+                    <div class="card-footer" style=" background: white;">
+                        <p><small>EMB课堂教学评价管理平台</small>
+                            <a id="changePw" href="#" data-toggle="tooltip" data-placement="bottom" title="(ง •_•)ง忘记密码点我哦!"><img
+                                    src="images/app/findpw.png" width="28px" height="28px" /></a>
+                        </p>
+
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="col-sm-0 col-md-2 ">
+            </div>
+
+
+            <!-- ---------------- -->
+        </div>
+    </div>
+   
+    <script>
+         
+        $(document).ready(function () {
+           
+            layer.tips('登录注册切换按钮', '#tranLog');
+       
+             // console.log(getCookie("emb_log"));
+            if(getCookie("emb_log")=="login")
+            {
+                setCookie("emb_log","log",1);
+                transfer();
+               
+            }
+            var page = 0;
+            var isMail = false;
+            var LoginBt = $("#login");
+            var RegesterBt = $("#regester");
+            var emialTxt = $("#email");
+            var pwTxt = $("#password");
+            var roleVal = $("#role");
+            var emilIco = $("#emailico");
+            var pwIco = $("#pwico");
+            var BaseUrl = "http://localhost:55810/User/";
+            var user = {
+                id: -1,
+                email: '',
+                role: 0,
+                pw: ''
+            };
+
+
+            function changeIco(e, img) {
+                e.attr("src", "images/app/" + img + ".png");
+            }
+
+
+
+            //                 changeIco(emilIco,"Lock-Mail");
+            //                 changeIco(pwIco,"Lock-Screen")
+            // 
+
+
+            roleVal.bind("input propertychange", function (event) {
+                user.role = roleVal.val();
+                console.log("角色设定:" + user.role);
+            });
+
+
+
+            $('[data-toggle="tooltip"]').tooltip();
+            // $("#loginbtg").hide();
+            var autoData = [];
+            emialTxt.bind("input propertychange", function (event) {
+                if (emialTxt.val().toString().indexOf("@") < 0) {
+                    autoData.push(emialTxt.val() + "@qq.com");
+                    autoData.push(emialTxt.val() + "@163.com");
+                    autoData.push(emialTxt.val() + "@126.com");
+                    autoData.push(emialTxt.val() + "@gmail.com");
+                    autoData.push(emialTxt.val() + "@outlook.com");
+                }
+                if (emialTxt.val().trim().length < 1) {
+                    changeIco(emilIco, "email");
+                }
+
+
+            });
+            emialTxt.change(function () {
+                user.email = emialTxt.val();
+                console.log("用户邮箱设定:" + user.email);
+                $.post(BaseUrl + "IsMail", { email: user.email },
+                    function (data, status) {
+                        if (status == "success") {
+                            console.log(page);
+                            isMail = data
+                            if (isMail) {
+
+                                if (page == 0) {
+                                    changeIco(emilIco, "erro");
+                                } else {
+                                    changeIco(emilIco, "true");
+                                }
+                            }
+                            else {
+                                if (page == 0) {
+                                    changeIco(emilIco, "true");
+                                } else {
+                                    changeIco(emilIco, "erro");
+                                }
+
+                            }
+                        }
+                        else {
+                            changeIco(emilIco, "email");
+                        }
+
+                        console.log(data);
+
+                    });
+            })
+
+            pwTxt.bind("input propertychange", function () {
+                user.pw = pwTxt.val();
+                console.log("用户密码设定:" + user.pw);
+
+            })
+
+            emialTxt.autocomplete({
+                source: autoData,
+                change: function (event, ui) {
+                    autoData = [];
+                },
+                select: function (event, ui) {
+                    autoData = [];
+                }
+
+
+            });
+
+
+
+            function transfer() {
+                var logbtg = $("#loginbtg");
+                var regesbtg = $("#regesterbtg");
+                var titleTxt = $("#titleTxt");
+                if (logbtg.css("display") == "none") {
+                    regesbtg.animate({
+                        // opacity: 'toggle',
+                    });
+                    page = 1;
+
+                    titleTxt.text("EMB-用户登录");
+                    regesbtg.hide();
+                    // regesbtg.css("display","none");
+                    logbtg.show();
+                } else {
+                    logbtg.animate({
+                        // opacity: 'toggle',
+                    });
+                    page = 0;
+                    titleTxt.text("EMB-用户注册");
+                    logbtg.hide();
+                    // logbtg.css("display","none");
+                    regesbtg.show();
+                }
+            }
+
+
+            $("#tranLog").click(function () {
+                transfer();
+            });
+            
+
+
+
+            RegesterBt.click(function () {
+                user.email = emialTxt.val();
+                user.role = roleVal.val();
+                user.pw = pwTxt.val();
+
+
+                try {
+
+                    $.post(BaseUrl + "Register", user,
+                    function (data, status) {
+                        if (data) {
+                            console.log("ok");
+                            pushCookie(user);
+                            // window.location.href="index.html";  
+                        }
+                        // alert("数据: \n" + data + "\n状态: " + status);
+                        console.log(data);
+                    });
+
+                } catch (error) {
+                    
+                }
+
+             
+            });
+
+
+
+            LoginBt.click(function () {
+                console.log("开始登陆");
+                user.email = emialTxt.val();
+                user.role = roleVal.val();
+                user.pw = pwTxt.val();
+                try{
+                    $.post(BaseUrl + "Login", user,
+                    function (data, status) {
+                        if (status == "success") {
+                            if (data.id > 0) {
+                                console.log("ok");
+                                pushCookie(data);
+                                window.location.href = "index.html";
+                            }
+
+                        }
+                        console.log(data);
+                    });
+                }catch(erro){
+                   
+                }
+            
+
+               
+            });
+
+
+
+
+
+
+            // console.log(BCode.encode(JSON.stringify(user)));
+
+            //                 ChckUserForCookie();
+
+
+            // -----------------!
+
+        });
+    </script>
+
+
+</body>
+
+</html>
